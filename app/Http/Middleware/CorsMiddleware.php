@@ -4,8 +4,10 @@
     
     use Closure;
     use Illuminate\Http\Request;
+    use Illuminate\Http\Response;
 
-    class CorsMiddleware {
+    class CorsMiddleware
+    {
         /**
          * Handle an incoming request.
          *
@@ -13,7 +15,8 @@
          * @param Closure $next
          * @return mixed
          */
-        public function handle($request, Closure $next) {
+        public function handle($request, Closure $next)
+        {
             $headers = [
                 'Access-Control-Allow-Origin' => '*',
                 'Access-Control-Allow-Methods' => 'POST, PUT, GET, DELETE, OPTIONS',
@@ -23,7 +26,7 @@
             ];
             
             if ($request->isMethod('OPTIONS')) {
-                return response()->json('{"method":"OPTIONS"}', 200, $headers);
+                return response()->json('{"method":"OPTIONS"}', Response::HTTP_OK, $headers);
             }
             
             $response = $next($request);

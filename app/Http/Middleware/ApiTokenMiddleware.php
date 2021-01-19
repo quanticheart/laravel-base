@@ -2,13 +2,15 @@
     
     namespace App\Http\Middleware;
     
-    use App\Helpers\HashHelper;
+    use App\Constants\ResponseCodes;
     use Closure;
     use Illuminate\Http\Request;
+    use Illuminate\Http\Response;
     use Jenssegers\Agent\Agent;
     use function App\Helpers\responseError;
 
-    class ApiTokenMiddleware {
+    class ApiTokenMiddleware
+    {
         /**
          * Handle an incoming request.
          *
@@ -16,7 +18,8 @@
          * @param Closure $next
          * @return mixed
          */
-        public function handle(Request $request, Closure $next) {
+        public function handle(Request $request, Closure $next)
+        {
             $apiToken = $request->header('Api-Token', null);
             $ip = $request->ip();
             
@@ -84,7 +87,8 @@
             }
         }
         
-        private function returnErrorToken() {
-            return responseError('api-token invalid', 999, 401);
+        private function returnErrorToken()
+        {
+            return responseError('api-token invalid', ResponseCodes::RESPONSE_CODE_API_TOKEN_OUT, Response::HTTP_UNAUTHORIZED);
         }
     }

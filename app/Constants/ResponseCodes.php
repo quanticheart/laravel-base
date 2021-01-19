@@ -23,4 +23,7 @@
         
         /*Validation Fails*/
         const RESPONSE_CODE_VALIDATE_FAILED = 75;
+    
+        /*Api TOKEN*/
+        const RESPONSE_CODE_API_TOKEN_OUT = 85;
     }
