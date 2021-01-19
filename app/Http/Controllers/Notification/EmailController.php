@@ -1,9 +1,10 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
     
-    namespace App\Http\Controllers;
+    namespace App\Http\Controllers\Notification;
     
     use App\Constants\ResponseCodes;
     use App\Exceptions\RequestValidation;
+    use App\Http\Controllers\Controller;
     use App\Mail\MailSender;
     use Illuminate\Http\JsonResponse;
     use Illuminate\Http\Request;

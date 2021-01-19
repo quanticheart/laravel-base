@@ -1,11 +1,12 @@
 <?php /** @noinspection PhpUndefinedMethodInspection */
     
-    namespace App\Http\Controllers;
+    namespace App\Http\Controllers\Login;
     
     use App\Constants\ResponseCodes;
     use App\Constants\ValidationRules;
     use App\Exceptions\RequestValidation;
     use App\Helpers\JwtHelper;
+    use App\Http\Controllers\Controller;
     use App\Models\User;
     use Illuminate\Http\JsonResponse;
     use Illuminate\Http\Request;

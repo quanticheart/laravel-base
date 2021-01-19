@@ -1,8 +1,9 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
     
-    namespace App\Http\Controllers;
+    namespace App\Http\Controllers\Notification;
     
     use App\Exceptions\RequestValidation;
+    use App\Http\Controllers\Controller;
     use App\Models\User;
     use App\Push\PushSender;
     use Illuminate\Http\Request;

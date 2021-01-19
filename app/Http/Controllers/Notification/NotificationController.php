@@ -1,10 +1,11 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
     
-    namespace App\Http\Controllers;
+    namespace App\Http\Controllers\Notification;
     
     use App\Constants\NotificationAndEmailUser;
     use App\Constants\NotificationUser;
     use App\Exceptions\RequestValidation;
+    use App\Http\Controllers\Controller;
     use App\Models\User;
     use App\Notifications\NotificationSmsUser;
     use Illuminate\Http\JsonResponse;
