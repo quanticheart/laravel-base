@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "67e7aabe-e66a-4b56-b0dd-3fae65ae1655",
+		"name": "test_lumen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insert new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin3@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "novo user 2",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "(11) 98888-8888",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/insert",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin3@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/login",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}user/session",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update new user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "usuario",
+							"value": "novo user atualizado",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "(11) 97777-7777",
+							"description": " ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/update",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/delete",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMVwvbG9naW4iLCJpYXQiOjE2MDg3Nzc1NzIsImV4cCI6MTYwODc4MTE3MiwibmJmIjoxNjA4Nzc3NTcyLCJqdGkiOiJkbW03NUVFZG9VRGdqeFpwIiwic3ViIjoxMCwicHJ2IjoiNTg3MDg2M2Q0YTYyZDc5MTQ0M2ZhZjkzNmZjMzY4MDMxZDExMGM0ZiIsImVtYWlsIjoibmV3QDIyMi5jb20iLCJ0b2tlbi1kYXRhIjp0cnVlfQ.JOWy5aDogAaWu1V9xIZVmp7N9An26mLe7ot0qp7P-og",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user/logout",
+					"host": [
+						"{{url}}user"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send User Push",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}notify/user/push",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"push"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Push to all Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"type": "text",
+						"value": "{{api-token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}notify/push/all",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"push",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Token for Push",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "testes",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/push/save-token",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"push",
+						"save-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send User Notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/send",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification User List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/list",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification User Unread List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/list/unread",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"list",
+						"unread"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification User Read List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/list/read",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"list",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification Read By ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "de4184e1-724e-4180-9c83-21e58b93aadc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/read",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"type": "text",
+						"value": "{{api-token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "testes@admin.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/email",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send User Notification with Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"type": "text",
+						"value": "{{api-token}}"
+					},
+					{
+						"key": "User-Token",
+						"type": "text",
+						"value": "{{user-token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/send/email",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"send",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send User Notification Sms",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"type": "text",
+						"value": "{{api-token}}"
+					},
+					{
+						"key": "User-Token",
+						"type": "text",
+						"value": "{{user-token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/send/sms",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"send",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification User SMS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					},
+					{
+						"key": "User-Token",
+						"value": "{{user-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "celular",
+							"value": "(11) 98888-8888",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/user/sms",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"user",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send SMS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Api-Token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "celular",
+							"value": "(11) 98888-8888",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}notify/sms",
+					"host": [
+						"{{url}}notify"
+					],
+					"path": [
+						"sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users <Commented in code>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}users",
+					"host": [
+						"{{url}}users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
