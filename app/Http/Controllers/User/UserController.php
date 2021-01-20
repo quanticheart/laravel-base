@@ -4,6 +4,7 @@
     
     use App\Constants\ValidationRules;
     use App\Exceptions\RequestValidation;
+    use App\Helpers\StringHelper;
     use App\Http\Controllers\Controller;
     use App\Models\User;
     use Illuminate\Http\Request;
@@ -28,7 +29,7 @@
         public function logout()
         {
             return RequestValidation::tryCatch(function () {
-                return responseOk('token invalided');
+                return responseOk('user logout');
             });
         }
 
@@ -46,10 +47,10 @@
             });
         }
         
-        public function deleteUser($id)
+        public function deleteUser(Request $request)
         {
-            return RequestValidation::tryCatch(function () use ($id) {
-                $user = User::find($id);
+            return RequestValidation::tryCatch(function () use ($request) {
+                $user = User::find($request->auth);
                 $user->delete();
                 return responseOk('user deleted');
             });
@@ -62,7 +63,7 @@
                 
                 $user = User::find($request->auth);
                 $user->usuario = $request->usuario;
-                $user->celular = $request->celular;
+                $user->celular = StringHelper::clearPhoneNumber($request->celular);
                 $user->password = Hash::make($request->password);
                 
                 $user->save();

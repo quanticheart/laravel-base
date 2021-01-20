@@ -19,7 +19,8 @@
      * @property string password
      * @property mixed celular
      */
-    class User extends Authenticatable {
+    class User extends Authenticatable
+    {
         use HasFactory, Notifiable;
         
         /**
@@ -47,7 +48,7 @@
          * @var array
          */
         protected $hidden = [
-            'password', 'verificado', 'updated_at', 'created_at'
+            'password', 'verificado', 'updated_at', 'created_at', 'device_token'
         ];
 
 //        /**
@@ -64,15 +65,18 @@
 //            return parent::update($attributes, $options);
 //        }
         
-        public static function pushTokenList() {
+        public static function pushTokenList()
+        {
             return (new User)->whereNotNull('device_token')->pluck('device_token')->all();
         }
         
-        public static function emailList() {
+        public static function emailList()
+        {
             return (new User)->whereNotNull('email')->pluck('email')->all();
         }
         
-        public function routeNotificationForNexmo($notification = null) {
+        public function routeNotificationForNexmo($notification = null)
+        {
             return '8990';
         }
     }

@@ -6,6 +6,7 @@
     use App\Constants\ValidationRules;
     use App\Exceptions\RequestValidation;
     use App\Helpers\JwtHelper;
+    use App\Helpers\StringHelper;
     use App\Http\Controllers\Controller;
     use App\Models\User;
     use Illuminate\Http\JsonResponse;
@@ -30,7 +31,7 @@
                     // to make sure that you have the same response format for
                     // different kind of responses. But let's return the
                     // below response for now.
-                    return responseError('user name or password incorrect', ResponseCodes::RESPONSE_CODE_LOGIN_USER_NOT_FOUND, Response::HTTP_NOT_FOUND);
+                    return responseError('user not exists', ResponseCodes::RESPONSE_CODE_LOGIN_USER_NOT_FOUND, Response::HTTP_NOT_FOUND);
                 }
                 
                 // Verify the password and generate the token
@@ -54,7 +55,7 @@
                 
                 $user = new User();
                 $user->email = $request->email;
-                $user->celular = $request->celular;
+                $user->celular = StringHelper::clearPhoneNumber($request->celular);
                 $user->usuario = $request->usuario;
                 $user->password = Hash::make($request->password);
                 $user->verificado = false;

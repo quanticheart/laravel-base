@@ -2,8 +2,8 @@
     
     namespace App\Notifications;
     
-    use App\Helpers\SmsHelper;
     use App\Models\User;
+    use App\Sms\SmsHelper;
     use Illuminate\Bus\Queueable;
     use Illuminate\Notifications\Notification;
 

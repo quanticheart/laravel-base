@@ -27,23 +27,23 @@
     Route::group(["prefix" => "user"], function () {
         Route::post('/session', userController . 'getSessionData');
         
-        Route::delete('/delete/{id}', userController . 'deleteUser');
+        Route::delete('/delete', userController . 'deleteUser');
         
         Route::put('/update', userController . 'updateUser');
 
 //        Route::get('/list', userController . 'getUsersList');
         
-        Route::get('/logout', userController . 'logout');
+        Route::post('/logout', userController . 'logout');
+        
+        /**
+         * Login's Routes
+         *
+         *
+         */
+        Route::post('/login', loginController . 'login');
         
         Route::post('/insert', loginController . 'insertUser');
     });
-    
-    /**
-     * Login's Routes
-     *
-     *
-     */
-    Route::post('/login', loginController . 'login');
     
     /**
      * Notification's Routes
@@ -60,7 +60,7 @@
         //
         Route::group(["prefix" => "/user"], function () {
             
-            /* notification sms */
+            /* notification */
             Route::post('/send', notificationController . 'newNotification');
             Route::post('/send/email', notificationController . 'newNotificationWithEmail');
             Route::post('/send/sms', notificationController . 'newNotificationSms');
@@ -71,11 +71,11 @@
             
             Route::post('/read', notificationController . 'readNotificationByID');
             
-            /* push sms */
+            /* push */
             Route::post('/push/save-token', pushController . 'saveToken');
             Route::post('/push', pushController . 'sendNotificationToUser');
             
-            /* user sms */
+            /* sms */
             Route::post('/sms', smsController . 'userSms');
         });
         //

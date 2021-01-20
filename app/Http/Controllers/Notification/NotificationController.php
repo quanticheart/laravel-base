@@ -2,12 +2,12 @@
     
     namespace App\Http\Controllers\Notification;
     
-    use App\Constants\NotificationAndEmailUser;
-    use App\Constants\NotificationUser;
     use App\Exceptions\RequestValidation;
     use App\Http\Controllers\Controller;
     use App\Models\User;
+    use App\Notifications\NotificationAndEmailUser;
     use App\Notifications\NotificationSmsUser;
+    use App\Notifications\NotificationUser;
     use Illuminate\Http\JsonResponse;
     use Illuminate\Http\Request;
     use function App\Helpers\responseOk;
@@ -29,24 +29,20 @@
          * Notification Code Session
          */
         
-        /**
-         * @param Request $request
-         * @return JsonResponse
-         */
-        public function newNotificationWithEmail(Request $request)
-        {
-            return RequestValidation::tryCatch(function () use ($request) {
-                $user = User::find($request->auth);
-                $user->notify(new NotificationAndEmailUser($user));
-                return responseOk('Notification for ' . $user->email . ' sended');
-            });
-        }
-        
         public function newNotification(Request $request)
         {
             return RequestValidation::tryCatch(function () use ($request) {
                 $user = User::find($request->auth);
                 $user->notify(new NotificationUser($user));
+                return responseOk('Notification for ' . $user->email . ' sended');
+            });
+        }
+        
+        public function newNotificationWithEmail(Request $request)
+        {
+            return RequestValidation::tryCatch(function () use ($request) {
+                $user = User::find($request->auth);
+                $user->notify(new NotificationAndEmailUser($user));
                 return responseOk('Notification for ' . $user->email . ' sended');
             });
         }

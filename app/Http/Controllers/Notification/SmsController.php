@@ -31,8 +31,7 @@
         public function sms(Request $request)
         {
             return RequestValidation::tryCatch(function () use ($request) {
-                $rawCell = $request->cell;
-                SmsHelper::send($rawCell, 'Send Sms from nexmo');
+                SmsHelper::send($request->celular, 'Send Sms from nexmo');
                 return responseOk('send sms success');
             });
         }
