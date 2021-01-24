@@ -55,6 +55,20 @@
 		},
 		{
 			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// https://blog.postman.com/extracting-data-from-responses-and-chaining-requests/\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"user-token\", jsonData.data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -69,12 +83,12 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "admin3@admin.com",
+							"value": "admin@admin.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "1234567",
+							"value": "123456",
 							"type": "text"
 						},
 						{
