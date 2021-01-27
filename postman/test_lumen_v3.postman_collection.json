@@ -6,6 +6,27 @@
 	},
 	"item": [
 		{
+			"name": "home site",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url-site}}",
+					"host": [
+						"{{url-site}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "insert new user",
 			"request": {
 				"method": "POST",

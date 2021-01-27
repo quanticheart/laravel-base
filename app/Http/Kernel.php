@@ -22,7 +22,6 @@
             \App\Http\Middleware\TrimStrings::class,
             \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
             \App\Http\Middleware\CorsMiddleware::class,
-            \App\Http\Middleware\ApiTokenMiddleware::class
         ];
         
         /**
@@ -44,6 +43,7 @@
             'api' => [
                 'throttle:api',
                 \Illuminate\Routing\Middleware\SubstituteBindings::class,
+                \App\Http\Middleware\ApiTokenMiddleware::class
             ],
         ];
         
