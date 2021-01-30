@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
     
-    namespace App\Http\Controllers\Notification;
+    namespace App\Http\Controllers\Api\Notification;
     
     use App\Constants\ResponseCodes;
     use App\Exceptions\RequestValidation;

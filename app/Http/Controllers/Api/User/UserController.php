@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUndefinedFieldInspection */
     
-    namespace App\Http\Controllers\User;
+    namespace App\Http\Controllers\Api\User;
     
     use App\Constants\ValidationRules;
     use App\Exceptions\RequestValidation;

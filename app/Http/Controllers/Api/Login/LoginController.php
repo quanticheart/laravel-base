@@ -1,6 +1,6 @@
 <?php /** @noinspection PhpUndefinedMethodInspection */
     
-    namespace App\Http\Controllers\Login;
+    namespace App\Http\Controllers\Api\Login;
     
     use App\Constants\ResponseCodes;
     use App\Constants\ValidationRules;

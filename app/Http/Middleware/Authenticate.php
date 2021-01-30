@@ -37,7 +37,7 @@
             } catch (ExpiredException $e) {
                 return responseTokenError($msgs->msgErrorTokenExpired, ResponseCodes::RESPONSE_CODE_TOKEN_EXPIRED);
             } catch (Exception $e) {
-                return responseTokenError($msgs->msgErrorTokenInvalid, ResponseCodes::RESPONSE_CODE_TOKEN_INVALID);
+                return responseTokenError($msgs->msgErrorTokenInvalid . ' - ' . $e, ResponseCodes::RESPONSE_CODE_TOKEN_INVALID);
             }
             
             // Now let's put the user in the request class so that you can grab it from there

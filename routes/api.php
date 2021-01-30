@@ -2,6 +2,7 @@
     
     use Illuminate\Support\Facades\Route;
     
+    const folderController = 'App\Http\Controllers\Api\\';
     /*
     |--------------------------------------------------------------------------
     | API Routes
@@ -14,10 +15,10 @@
     */
     
     /* User controllers */
-    const userController = 'App\Http\Controllers\User\UserController@';
+    const userController = folderController . 'User\UserController@';
     
     /* Login controllers */
-    const loginController = 'App\Http\Controllers\Login\LoginController@';
+    const loginController = folderController . 'Login\LoginController@';
     
     /**
      * User's Routes
@@ -51,10 +52,10 @@
      *
      */
     
-    const notificationController = 'App\Http\Controllers\Notification\NotificationController@';
-    const emailController = 'App\Http\Controllers\Notification\EmailController@';
-    const pushController = 'App\Http\Controllers\Notification\PushController@';
-    const smsController = 'App\Http\Controllers\Notification\SmsController@';
+    const notificationController = folderController . 'Notification\NotificationController@';
+    const emailController = folderController . 'Notification\EmailController@';
+    const pushController = folderController . 'Notification\PushController@';
+    const smsController = folderController . 'Notification\SmsController@';
     
     Route::group(["prefix" => "notify"], function () {
         //
